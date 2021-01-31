@@ -82,3 +82,12 @@ def processOrder(request):
 				)
 
 	return JsonResponse('payment submitted',safe=False)
+
+def loginpage(request):
+	data=cartData(request)
+	CartItems=data['CartItems']
+	order=data['order']
+	items=data['items']
+		
+	context={'items':items,'order':order,'CartItems':CartItems}
+	return render(request, 'store/index.html', context)
