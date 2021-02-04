@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store.apps.StoreConfig'
+    'store.apps.StoreConfig',
+    'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -67,6 +69,22 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+SOCIAL_AUTH_FACEBOOK_KEY = "221457076369077"      # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = "28734d07a7711691c52867286731a0b2"  # App Secret
+
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
@@ -124,3 +142,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL='/images/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/images')
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
+
+LOGIN_REDIRECT_URL = '/'

@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from django.http import JsonResponse
 import json
 import datetime
 from .utils import cookieCart,cartData,guestOrder
+from django.contrib import messages
+from .forms import UserRegisterForm
 # Create your views here.
 def store(request):
 
@@ -39,7 +41,7 @@ def updateItem(request):
 	productId=data['productId']
 	action=data['action']
 	print('Action:',action)
-	print('Product:',productId)
+	print('Product:',productId)   
 	
 	customer=request.user.customer
 	product=Product.objects.get(id=productId)
@@ -83,11 +85,16 @@ def processOrder(request):
 
 	return JsonResponse('payment submitted',safe=False)
 
-def loginpage(request):
-	data=cartData(request)
-	CartItems=data['CartItems']
-	order=data['order']
-	items=data['items']
-		
-	context={'items':items,'order':order,'CartItems':CartItems}
-	return render(request, 'store/index.html', context)
+
+
+def register(request):
+	if request.method=='POST':
+		form=UserRegisterForm(request.POST)
+		if form.is_valid():
+			form.save()
+			username=form.cleaned_data.get('username')
+			messages.success(request, f'Your account has been created succesfully, Login as {username}!')
+			return redirect('login')
+	else:
+		form=UserRegisterForm()
+	return render(request, 'store/create.html', {'form': form})
