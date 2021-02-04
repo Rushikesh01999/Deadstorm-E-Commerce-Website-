@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'dr&w!b8b7ljxbz@&%r(he8dzfmvozipc-!b4z6@n&9$8nfos1='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://dead-storm.herokuapp.com','127.0.0.1']
 
 
 # Application definition
