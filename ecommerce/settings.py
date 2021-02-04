@@ -25,7 +25,7 @@ SECRET_KEY = 'dr&w!b8b7ljxbz@&%r(he8dzfmvozipc-!b4z6@n&9$8nfos1='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://dead-storm.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['dead-storm.herokuapp.com','127.0.0.1']
 
 
 # Application definition
