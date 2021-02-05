@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'dr&w!b8b7ljxbz@&%r(he8dzfmvozipc-!b4z6@n&9$8nfos1='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['dead-storm.herokuapp.com','127.0.0.1']
 
@@ -144,7 +144,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL='/images/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/images')
-
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
 LOGIN_REDIRECT_URL = '/'
