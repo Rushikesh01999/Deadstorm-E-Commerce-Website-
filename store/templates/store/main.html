@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
+
 <head>
 	<title>DeadStorm</title>
 
@@ -9,6 +10,9 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 	<script type="text/javascript">
 		var user="{{request.user}}"
 		
@@ -56,10 +60,11 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top" >
-	  <a class="navbar-brand" href="{% url 'store' %}" style="font-family:verdana;" >DeadStorm</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
+	  <a class="navbar-brand" href="{% url 'store' %}" style="font-family:verdana;" >DeadStorm</a>
+	  
 
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
@@ -71,19 +76,19 @@
 	      </li>
 	    </ul>
 	  
-
+	   </div>
 	  <div class="form-inline my-2 my-lg-0" id="navclass">
 	  	{% if user.is_authenticated %}
-	  		<a href="{% url 'logout' %}"class="btn btn-danger"  >Logout</a>
+	  		<a href="{% url 'logout' %}"class="btn navbar-fixed-top" style="color:white"  >Logout</a>
 	  	{% else %}
-     		<a href="{% url 'login' %}"class="btn btn-warning"  >Login / Register</a>
+     		<a href="{% url 'login' %}"class="btn navbar-fixed-top"  style="color:white" >Login / Register</a>
      	{% endif %}
      	<a href="{% url 'cart' %}">
     		<img  id="cart-icon" src="{% static 'images/6+cart.png' %}">
     	</a>
     	<p id="cart-total">{{CartItems}}</p>
        </div>
- 	</div>
+ 	
 	</nav>
 	       
 
@@ -108,16 +113,20 @@
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <h6>About</h6>
-            <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+            <p class="text-justify">Welcome to DeadStorm.com, your number one source for all things & product ie: shoes, bags, dog treats. We're dedicated to giving you the very best service, with a focus on three characteristics, ie: dependability, customer service and uniqueness. DeadStorm was Founded in 2020 by Rushikesh Tummod and his team, We at DeadStorm are thrilled to be a part of the quirky, eco-friendly, fair trade wing of the e-commerce industry.
+
+We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.</p>
           </div>
 
           <div class="col-xs-6 col-md-3">
             <h6>Categories</h6>
             <ul class="footer-links">
               
-              <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-              <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-              <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+              <li><a href="http://scanfcode.com/category/java-programming-language/">Electronics</a></li>
+              <li><a href="http://scanfcode.com/category/android/">Grocery</a></li>
+              <li><a href="http://scanfcode.com/category/templates/">Fashion</a></li>
+              <li><a href="http://scanfcode.com/category/android/">Codes</a></li>
+              <li><a href="http://scanfcode.com/category/templates/">Phone</a></li>
             </ul>
           </div>
 
@@ -138,7 +147,7 @@
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
             <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
-         <a href="#">Scanfcode</a>.
+         <a href="#">DeadStorm</a>.
             </p>
           </div>
 
